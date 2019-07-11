@@ -35,4 +35,11 @@ before_script:
 
 script:
   - npm run lint
-  - npm run build
+  - ng run app:ionic-cordova-build:production --platform=browser --base-href https://achudh.github.io/doctor
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN
+  local_dir: www/
+  on:
+    branch: master
